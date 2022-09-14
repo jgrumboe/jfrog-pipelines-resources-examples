@@ -5,11 +5,11 @@ resources:
       interval: '0 1 * * *'     # Once a day
 
 pipelines:
-   configuration:
-     retentionPolicy:
-       maxAgeDays: 30
-       minRuns: 10
   - name: pipeline_scheduled_triggers
+    configuration:
+      retentionPolicy:
+        maxAgeDays: 30
+        minRuns: 10
     steps:
       - name: step_1
         type: Bash
