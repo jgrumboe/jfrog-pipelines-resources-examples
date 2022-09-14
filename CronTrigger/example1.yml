@@ -2,9 +2,13 @@ resources:
   - name: cron_trigger
     type: CronTrigger
     configuration:
-      interval: '0 * * * *'     # Every 5 minutes
+      interval: '0 1 * * *'     # Once a day
 
-pipelines:      
+pipelines:
+   configuration:
+     retentionPolicy:
+       maxAgeDays: 30
+       minRuns: 10
   - name: pipeline_scheduled_triggers
     steps:
       - name: step_1
